@@ -13,16 +13,16 @@ img = cv.imread(image_file)
 if img is None:
     raise ValueError(f"Failed to load image: {image_file}")
 
-def display(im_path, title="Image"):
-    print(f"Affichage : {im_path}")  # debug
-    im_data = plt.imread(im_path)
-    plt.imshow(im_data)
+# Fonction d'affichage avec correction des couleurs BGR -> RGB
+def display_cv_image(image, title="Image"):
+    image_rgb = cv.cvtColor(image, cv.COLOR_BGR2RGB)  # conversion pour affichage correct
+    plt.imshow(image_rgb)
     plt.title(title)
     plt.axis('off')  # cacher les axes
     plt.show(block=True)  # important: bloque l'exécution jusqu'à fermeture
 
 # afficher l'image originale
-display(image_file, "Original")
+display_cv_image(img, "Original")
 
 # inverser les couleurs de l'image et enregistrer
 inverted_image = cv.bitwise_not(img)
@@ -30,7 +30,7 @@ output_file = "temp/inverted.jpg"
 cv.imwrite(output_file, inverted_image)
 
 # afficher l'image inversée
-display(output_file, "Inversée")
+display_cv_image(inverted_image, "Inversée")
 
 # Rescaling
 # Binarization
@@ -42,4 +42,18 @@ gray_file = "temp/gray.jpg"
 cv.imwrite(gray_file, gray_image)
 
 # afficher l'image en niveaux de gris
-display(gray_file, "Gris")
+plt.imshow(gray_image, cmap='gray')
+plt.title("Gris")
+plt.axis('off')
+plt.show()
+
+# seuillage binaire
+_, im_bw = cv.threshold(gray_image, 90, 255, cv.THRESH_BINARY)
+cv.imwrite("temp/bw_image.jpg", im_bw)
+
+# afficher l'image en noir et blanc
+plt.imshow(im_bw, cmap='gray')
+plt.title("Noir et Blanc")
+plt.axis('off')
+plt.show()
+
