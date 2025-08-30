@@ -56,11 +56,12 @@ _display.png (detected LCD)
 
 intermediate binarizations and per-digit crops
 
-Project Structure
+### Project Structure
+---
 .
-├─ meter_conso_to_excel.py
-├─ images/              # your photos
-└─ output/              # Excel + debug crops (auto-created)
+|-- meter_conso_to_excel.py
+|-- images/ # your photos
+`-- output/ # Excel + debug crops (auto-created)
 
 Tips
 
