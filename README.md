@@ -64,7 +64,7 @@ Extract electricity meter readings from photos (e.g., XS212 / Siconia) and expor
 ### Debug images
 Saved under `output/meter_debug_<timestamp>/`:
 - `_display.png` — detected LCD area (after perspective fix)
-- Intermediate binarizations and `digit_XX.png` per-digit crops
+- Intermediate binarizations and `digit.png` per-digit crops
 
 ---
 
