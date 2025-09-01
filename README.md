@@ -1,6 +1,6 @@
 # Meter Conso → Excel (OCR)
 
-Extract electricity meter readings from photos (e.g., XS212 / Siconia) and export them to Excel.
+Extract electricity, gaz, water meter readings from photos (e.g., XS212 / Siconia) and export them to Excel.
 
 > The script reads the **register** (e.g. `1.8.2`), the **numeric value** (e.g. `000522.580`), and the **unit** (`kWh`).
 
